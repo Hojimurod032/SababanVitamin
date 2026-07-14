@@ -1,0 +1,541 @@
+{% extends 'base/base.html' %}
+
+{% block base %}
+
+    <style>
+        .profile-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .profile-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(45, 106, 79, .08);
+            border: 1px solid var(--gray-100);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(45, 106, 79, .25);
+        }
+
+        .profile-name {
+            font-size: 28px;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+
+        .profile-phone {
+            color: var(--gray-500);
+            font-size: 15px;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 22px;
+            background: #dc3545;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: .2s ease;
+        }
+
+        .logout-btn:hover {
+            background: #bb2d3b;
+            transform: translateY(-2px);
+        }
+
+        .logout-btn:active {
+            transform: scale(.97);
+        }
+
+        /* ── ORDERS ── */
+        .orders-section {
+            margin-top: 40px;
+        }
+
+        .orders-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--gray-900);
+        }
+
+        .order-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 16px;
+            border: 1px solid var(--gray-100);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .04);
+        }
+
+        .order-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .order-customer {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3px;
+        }
+
+        .order-id {
+            color: var(--green-mid);
+            font-weight: 600;
+        }
+
+        .order-date {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        /* status pills — Order.StatusType ga mos */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .status::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .status-pending {
+            background: #FFF3CD;
+            color: #856404;
+        }
+
+        .status-confirmed {
+            background: #D1ECF1;
+            color: #0C5460;
+        }
+
+        .status-delivering {
+            background: #DBEAFE;
+            color: #1D4ED8;
+        }
+
+        .status-delivered {
+            background: #D8F3DC;
+            color: #2D6A4F;
+        }
+
+        .status-rejected {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+
+        .order-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .order-field {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .order-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .order-field-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .order-field-value {
+            font-size: 14px;
+            color: var(--gray-900);
+            font-weight: 500;
+        }
+
+        .order-field-value.price {
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .order-desc {
+            background: var(--off-white);
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 13px;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .order-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 14px;
+            border-top: 1px solid var(--gray-100);
+            margin-bottom: 14px;
+        }
+
+        .order-check-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--green-mid);
+            text-decoration: none;
+        }
+
+        .order-check-link:hover {
+            color: var(--green-dark);
+            text-decoration: underline;
+        }
+
+        .order-check-thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--gray-100);
+        }
+
+        /* ── XABARLAR (order messages) ── */
+        .order-messages {
+            padding-top: 14px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .messages-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+
+        .message-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 6px;
+            background: var(--off-white);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .message-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-author {
+            font-weight: 700;
+            color: var(--green-dark);
+            flex-shrink: 0;
+        }
+
+        .message-author.admin {
+            color: #1D4ED8;
+        }
+
+        .message-text {
+            color: var(--gray-700);
+            flex: 1;
+        }
+
+        .message-time {
+            font-size: 11px;
+            color: var(--gray-500);
+            width: 100%;
+        }
+
+        .message-item.empty .message-text {
+            color: var(--gray-500);
+        }
+
+        .empty-orders {
+            background: white;
+            padding: 40px 24px;
+            text-align: center;
+            border-radius: 16px;
+            color: var(--gray-500);
+            border: 1px solid var(--gray-100);
+        }
+
+        .empty-orders-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .profile-avatar {
+                width: 90px;
+                height: 90px;
+                font-size: 32px;
+            }
+
+            .profile-name {
+                font-size: 22px;
+            }
+
+            .order-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .order-body {
+                grid-template-columns: 1fr;
+            }
+
+            .order-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+    </style>
+
+    <section class="profile-section">
+
+        <div class="profile-card">
+
+            <div class="profile-avatar">
+                {{ user.first_name|slice:":1"|upper }}{{ user.last_name|slice:":1"|upper }}
+            </div>
+
+            <h2 class="profile-name">
+                {{ user.first_name }} {{ user.last_name }}
+            </h2>
+
+            <p class="profile-phone">
+                {{ user.phone_number }}
+            </p>
+
+            <a href="{% url 'logout' %}" class="logout-btn">
+                Chiqish
+            </a>
+
+        </div>
+
+        <div class="orders-section">
+
+            <h3 class="orders-title">
+                Mening buyurtmalarim
+            </h3>
+
+            {% for order in order_data %}
+
+                <div class="order-card">
+
+                    <div class="order-top">
+                        <div>
+                            <div class="order-customer">
+                                {{ order.first_name }} {{ order.last_name }}
+                            </div>
+                            <div class="order-date">
+                                <span class="order-id">№{{ order.id }}</span> · {{ order.created_at|date:"d.m.Y, H:i" }}
+                            </div>
+                        </div>
+
+                        <span class="status
+                            {% if order.status == 'pending' %}status-pending
+                            {% elif order.status == 'confirmed' %}status-confirmed
+                            {% elif order.status == 'delivering' %}status-delivering
+                            {% elif order.status == 'delivered' %}status-delivered
+                            {% elif order.status == 'rejected' %}status-rejected
+                            {% endif %}">
+                            {{ order.get_status_display }}
+                        </span>
+                    </div>
+
+                    <div class="order-body">
+                        <div class="order-field">
+                            <span class="order-field-label">Mahsulot</span>
+                            <span class="order-field-value">{{ order.product }}</span>
+                        </div>
+
+                        <div class="order-field">
+                            <span class="order-field-label">Soni</span>
+                            <span class="order-field-value">{{ order.quanty }} dona</span>
+                        </div>
+
+                        <div class="order-field">
+                            <span class="order-field-label">Umumiy narx</span>
+                            <span class="order-field-value price">{{ order.all_price|floatformat:0 }} so'm</span>
+                        </div>
+
+                        <div class="order-field">
+                            <span class="order-field-label">Telefon</span>
+                            <span class="order-field-value">{{ order.phone_number }}</span>
+                        </div>
+
+                        {% if order.second_number %}
+                            <div class="order-field">
+                                <span class="order-field-label">Qo'shimcha raqam</span>
+                                <span class="order-field-value">{{ order.second_number }}</span>
+                            </div>
+                        {% endif %}
+
+                        <div class="order-field">
+                            <span class="order-field-label">Viloyat</span>
+                            <span class="order-field-value">{{ order.region }}</span>
+                        </div>
+
+                        <div class="order-field">
+                            <span class="order-field-label">Shahar</span>
+                            <span class="order-field-value">{{ order.city }}</span>
+                        </div>
+
+                        <div class="order-field full">
+                            <span class="order-field-label">Manzil</span>
+                            <span class="order-field-value">{{ order.address }}</span>
+                        </div>
+                    </div>
+
+                    {% if order.desc %}
+                        <div class="order-desc">
+                            {{ order.desc }}
+                        </div>
+                    {% endif %}
+
+                    {% if order.payment_check %}
+                        <div class="order-footer">
+                            <a href="#" onclick="openLightbox('{{ order.payment_check.url }}'); return false;"
+                               class="order-check-link">
+                                <img src="{{ order.payment_check.url }}" alt="To'lov cheki" class="order-check-thumb">
+                                To'lov chekini ko'rish
+                            </a>
+                        </div>
+                    {% endif %}
+                    <div class="order-messages">
+                        <div class="messages-header">
+                            💬 Xabarlar
+                        </div>
+
+                        {% if order.message %}
+                            <div class="message-item"
+                                 {% if order.status == 'rejected' %}style="background:#F8D7DA;"{% endif %}>
+                                <span class="message-author admin"
+                                      {% if order.status == 'rejected' %}style="color:#721C24;"{% endif %}>Admin:</span>
+                                <span class="message-text"
+                                      {% if order.status == 'rejected' %}style="color:#721C24; font-weight:600;"{% endif %}>
+                {{ order.message }}
+            </span>
+                            </div>
+                        {% else %}
+                            <div class="message-item empty">
+                                <span class="message-author admin">Admin:</span>
+                                <span class="message-text">Hozircha xabar yo'q</span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <div class="empty-orders">
+                    <span class="empty-orders-icon">📦</span>
+                    Sizda hali buyurtmalar mavjud emas
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close">✕</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    <script>
+        function openLightbox(url) {
+            document.getElementById('lightbox-img').src = url;
+            document.getElementById('lightbox').classList.add('open');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+{% endblock %}

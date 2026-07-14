@@ -1,0 +1,329 @@
+{% extends 'base/base.html' %}
+{% load  i18n %}
+{% block base %}
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green-dark: #2D6A4F;
+            --green-mid: #40916C;
+            --green-light: #74C69D;
+            --green-pale: #D8F3DC;
+            --white: #FFFFFF;
+            --off-white: #F8FAF9;
+            --gray-100: #F0F4F2;
+            --gray-300: #C8D8D0;
+            --gray-500: #7A9E90;
+            --gray-700: #3D5A50;
+            --gray-900: #1B2E28;
+            --accent-gold: #E9C46A;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 2px 8px rgba(45, 106, 79, .10);
+            --shadow-md: 0 4px 20px rgba(45, 106, 79, .15);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--off-white);
+            color: var(--gray-900);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .logo-icon {
+            font-size: 24px;
+        }
+
+
+        .nav-burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            border-radius: 2px;
+        }
+
+        .auth-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 24px;
+        }
+
+        .auth-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-100);
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .auth-logo .logo-icon {
+            font-size: 40px;
+        }
+
+        .auth-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .auth-sub {
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .form-input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 13px;
+            color: var(--gray-500);
+            pointer-events: none;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px 12px 40px;
+            border: 1.5px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--gray-900);
+            background: var(--off-white);
+            transition: border .2s, box-shadow .2s;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--green-mid);
+            box-shadow: 0 0 0 3px rgba(64, 145, 108, .12);
+            background: var(--white);
+        }
+
+        .form-input.no-icon {
+            padding-left: 14px;
+        }
+
+        .forgot-link {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            color: var(--green-mid);
+            text-decoration: none;
+            margin-top: -8px;
+            margin-bottom: 8px;
+        }
+
+        .btn-auth {
+            display: block;
+            width: 100%;
+            background: var(--green-mid);
+            color: #fff;
+            padding: 13px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background .2s;
+        }
+
+        .btn-auth:hover {
+            background: var(--green-dark);
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: var(--gray-500);
+            font-size: 13px;
+        }
+
+        .auth-divider::before, .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gray-300);
+        }
+
+        .btn-tg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: var(--gray-100);
+            color: var(--gray-900);
+            padding: 13px;
+            border: 1.5px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color .2s, background .2s;
+        }
+
+        .btn-tg:hover {
+            border-color: var(--green-light);
+            background: var(--green-pale);
+        }
+
+        .auth-switch {
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-top: 24px;
+        }
+
+        .auth-switch a {
+            color: var(--green-mid);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-switch a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 40px 24px 0;
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 16px;
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-burger {
+                display: flex;
+            }
+
+            .auth-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+
+
+    <main class="auth-main">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="auth-card">
+                <div class="auth-logo">
+                    <span class="logo-icon">🌿</span>
+                </div>
+                <h1 class="auth-title">{% translate 'Xush kelibsiz!' %}</h1>
+                <p class="auth-sub">{% translate 'Hisobingizga kiring' %}</p>
+
+                <div class="form-group">
+                    <label class="form-label" for="phone">{% translate 'Telefon raqam' %}</label>
+                    <div class="form-input-wrap">
+                        <svg class="input-icon" width="17" height="17" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor"
+                             stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <input type="tel" name="phone_number" class="form-input" placeholder="+998 90 000 00 00"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Parol</label>
+                    <div class="form-input-wrap">
+                        <svg class="input-icon" width="17" height="17" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor"
+                             stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input type="password" name="password" class="form-input"
+                               placeholder="{% translate 'Parolingizni kiriting' %}"
+                        >
+                    </div>
+                </div>
+
+                <a href="#" class="forgot-link">{% translate 'Parolni unutdingizmi?' %}</a>
+
+                <button type="submit" class="btn-auth">{% translate 'Kirish' %}</button>
+
+                <p class="auth-switch">
+                    {% translate "Akkauntingiz yo'qmi?" %} <a
+                        href="{% url 'register' %}">{% translate "Ro'yxatdan o'tish" %}</a>
+                </p>
+            </div>
+
+        </form>
+    </main>
+
+
+{% endblock %}

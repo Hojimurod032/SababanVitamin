@@ -1,0 +1,138 @@
+{% extends 'base/base.html' %}
+
+{% block base %}
+
+<style>
+    .success-page {
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        background: #f8faf9;
+    }
+
+    .success-card {
+        max-width: 650px;
+        width: 100%;
+        background: white;
+        border-radius: 24px;
+        padding: 50px 40px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,.08);
+    }
+
+    .success-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 25px;
+        background: #d8f3dc;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        color: #2D6A4F;
+    }
+
+    .success-title {
+        font-size: 34px;
+        font-weight: 800;
+        color: #1B2E28;
+        margin-bottom: 15px;
+    }
+
+    .success-text {
+        font-size: 17px;
+        color: #6c757d;
+        line-height: 1.8;
+        margin-bottom: 35px;
+    }
+
+    .order-info {
+        background: #f8faf9;
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #e9ecef;
+    }
+
+    .order-info strong {
+        color: #2D6A4F;
+    }
+
+    .btn-orders {
+        display: inline-block;
+        text-decoration: none;
+        background: #40916C;
+        color: white;
+        padding: 14px 30px;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: .3s;
+    }
+
+    .btn-orders:hover {
+        background: #2D6A4F;
+        transform: translateY(-2px);
+    }
+
+    .success-footer {
+        margin-top: 25px;
+        color: #8a8a8a;
+        font-size: 14px;
+    }
+
+    @media(max-width:768px){
+        .success-card{
+            padding:35px 20px;
+        }
+
+        .success-title{
+            font-size:28px;
+        }
+
+        .success-icon{
+            width:100px;
+            height:100px;
+            font-size:50px;
+        }
+    }
+</style>
+
+<section class="success-page">
+    <div class="success-card">
+
+```
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h1 class="success-title">
+        Buyurtmangiz qabul qilindi!
+    </h1>
+
+    <p class="success-text">
+        Buyurtmangiz muvaffaqiyatli yuborildi.
+        Tez orada operatorlarimiz siz bilan bog'lanadi va buyurtmani tasdiqlaydi.
+    </p>
+
+    <div class="order-info">
+        📦 Buyurtma holatini <strong>"Mening buyurtmalarim"</strong>
+        bo'limi orqali kuzatib borishingiz mumkin.
+    </div>
+
+    <a href="{% url 'profile' %}" class="btn-orders">
+        Mening buyurtmalarim
+    </a>
+
+    <div class="success-footer">
+        Bizni tanlaganingiz uchun rahmat ❤️
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}

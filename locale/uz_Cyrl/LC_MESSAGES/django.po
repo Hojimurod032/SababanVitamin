@@ -1,0 +1,236 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-17 22:19+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Home"
+msgstr "Бош саҳифа"
+
+msgid "About"
+msgstr "Биз ҳақимизда"
+
+msgid "Products"
+msgstr "Маҳсулотлар"
+
+msgid "Contact"
+msgstr "Алоқа"
+
+msgid "Tilni tanlash"
+msgstr "Тилни танлаш"
+
+msgid "Kirish"
+msgstr "Кириш"
+
+msgid "sevara"
+msgstr "Севара Эргашева томонидан ташкил этилган. 100% ҳалол, оригинал витаминлар."
+
+msgid "Sahifalar"
+msgstr "Саҳифалар"
+
+msgid "Bosh sahifa"
+msgstr "Бош саҳифа"
+
+msgid "Biz haqimizda"
+msgstr "Биз ҳақимизда"
+
+msgid "Mahsulotlar"
+msgstr "Маҳсулотлар"
+
+msgid "Aloqa"
+msgstr "Алоқа"
+
+msgid "Akkaunt"
+msgstr "Аккаунт"
+
+msgid "Ro'yxatdan o'tish"
+msgstr "Рўйхатдан ўтиш"
+
+msgid "Toshkent, Qoraqamish 2/1"
+msgstr "Тошкент, Қорақамиш 2/1"
+
+msgid "Barcha huquqlar himoyalangan."
+msgstr "Барча ҳуқуқлар ҳимояланган."
+
+msgid "Xush kelibsiz!"
+msgstr "Хуш келибсиз!"
+
+msgid "Hisobingizga kiring"
+msgstr "Ҳисобингизга киринг"
+
+msgid "Telefon raqam"
+msgstr "Телефон рақам"
+
+msgid "Parolingizni kiriting"
+msgstr "Паролингизни киритинг"
+
+msgid "Parolni unutdingizmi?"
+msgstr "Паролни унутдингизми?"
+
+msgid "Akkauntingiz yo'qmi?"
+msgstr "Аккаунтингиз йўқми?"
+
+msgid "Hisob yarating"
+msgstr "Ҳисоб яратинг"
+msgid "Sababan Vitamin oilasiga qo'shiling"
+msgstr "Sababan Vitamin оиласига қўшилинг"
+msgid "🎁 Chegirmalar"
+msgstr "🎁 Чегирмалар"
+msgid "📦 Buyurtma tarixi"
+msgstr "📦 Буюртма тарихи"
+msgid "🚀 Tez buyurtma"
+msgstr "🚀 Тез буюртма"
+msgid "Ism *"
+msgstr "Исм *"
+msgid "Ismingiz"
+msgstr "Исмингиз"
+msgid "Familiya(ixtiyoriy) *"
+msgstr "Фамилия(ихтиёрий) *"
+msgid "Familiyangiz"
+msgstr "Фамилиянгиз"
+msgid "Telefon raqam *"
+msgstr "Телефон рақам *"
+msgid "Parol *"
+msgstr "Парол *"
+msgid "Kamida 8 ta belgi"
+msgstr "Камида 8 та белги"
+msgid "Parolni tasdiqlang *"
+msgstr "Паролни тасдиқланг *"
+msgid "Parolni qaytaring"
+msgstr "Паролни қайтаринг"
+msgid "Akkauntingiz bormi?"
+msgstr "Аккаунтингиз борми?"
+
+msgid "Toifalar"
+msgstr "Тоифалар"
+msgid "Kerakli kategoriyani tanlang"
+msgstr "Керакли категорияни танланг"
+msgid "Hammasini ko'rish →"
+msgstr "Ҳаммасини кўриш →"
+msgid "Ko'plab mahsulotlar"
+msgstr "Кўплаб маҳсулотлар"
+msgid "Mashhur vitaminlar"
+msgstr "Машҳур витаминлар"
+msgid "Barchasini ko'rish →"
+msgstr "Барчасини кўриш →"
+msgid "so'm"
+msgstr "сўм"
+msgid "Bismillah — Sifat kafolati"
+msgstr "Бисмиллаҳ — Сифат кафолати"
+msgid "6 yillik tajriba"
+msgstr "6 йиллик тажриба"
+msgid "Amerika va Yevropa vitaminlari sohasida ishonchli yetkazuvchi."
+msgstr "Америка ва Европа витаминлари соҳасида ишончли етказувчи."
+msgid "Tez yetkazib berish"
+msgstr "Тез етказиб бериш"
+msgid "Toshkent bo'ylab tez va xavfsiz yetkazib berish xizmati."
+msgstr "Тошкент бўйлаб тез ва хавфсиз етказиб бериш хизмати."
+msgid "100% Original"
+msgstr "100% Оригинал"
+msgid "Soxta mahsulot yo'q. Har bir tovar hujjatlari bilan keladi."
+msgstr "Сохта маҳсулот йўқ. Ҳар бир товар ҳужжатлари билан келади."
+msgid "Nima uchun Sababan Vitamin?"
+msgstr "Нима учун Sababan Vitamin?"
+msgid "Sevara Ergasheva tomonidan 2018 yilda tashkil etilgan Sababan Vitamin bugun Toshkentning eng ishonchli vitamin do'konlaridan biriga aylandi. Biz 156 000 dan ortiq doimiy mijozlarimizga xizmat qilamiz."
+msgstr "Севара Эргашева томонидан 2018 йилда ташкил этилган Sababan Vitamin бугун Тошкентнинг энг ишончли витамин дўконларидан бирига айланди. Биз 156 000 дан ортиқ доимий мижозларимизга хизмат қиламиз."
+msgid "Original, sertifikatlangan Amerika vitaminlari"
+msgstr "Оригинал, сертификатланган Америка витаминлари"
+msgid "Optom va chakana narxlarda savdo"
+msgstr "Оптом ва чакана нархларда савдо"
+msgid "Qoraqamish 2/1 da qulay joylashuv"
+msgstr "Қорақамиш 2/1 да қулай жойлашув"
+msgid "Onlayn buyurtma va yetkazib berish"
+msgstr "Онлайн буюртма ва етказиб бериш"
+msgid "Mutaxassis maslahat bepul"
+msgstr "Мутахассис маслаҳат бепул"
+msgid "Buyurtma berish →"
+msgstr "Буюртма бериш →"
+msgid "Biz bilan bog'laning"
+msgstr "Биз билан боғланинг"
+msgid "Manzil"
+msgstr "Манзил"
+msgid "Qoraqamish 2/1, Toshkent"
+msgstr "Қорақамиш 2/1, Тошкент"
+msgid "Ish vaqti"
+msgstr "Иш вақти"
+msgid "Telefon 1"
+msgstr "Телефон 1"
+msgid "Telefon 2"
+msgstr "Телефон 2"
+msgid "Telegram kanalimiz"
+msgstr "Телеграм каналимиз"
+
+msgid "Vitamin yoki mahsulot qidiring..."
+msgstr "Витамин ёки маҳсулот қидиринг..."
+
+msgid "Qidirish"
+msgstr "Қидириш"
+
+msgid "Barchasi"
+msgstr "Барчаси"
+
+msgid "ta mahsulot topildi"
+msgstr "та маҳсулот топилди"
+
+msgid "Hech narsa topilmadi"
+msgstr "Ҳеч нарса топилмади"
+
+msgid "Siz qidirgan mahsulot bazada yo‘q yoki filtr mos kelmadi."
+msgstr "Сиз қидирган маҳсулот базада йўқ ёки фильтр мос келмади."
+
+msgid "Filtrni tozalash"
+msgstr "Фильтрни тозалаш"
+
+msgid "Siz ro'yxatdan o'tmagansiz. Keling, ro'yxatdan o'tamiz!"
+msgstr "Сиз рўйхатдан ўтмагансиз. Келинг, рўйхатдан ўтамиз!"
+
+msgid "Yopish"
+msgstr "Ёпиш"
+
+msgid "dona"
+msgstr "дона"
+
+msgid "Mahsulot ma'lumotlari"
+msgstr "Маҳсулот маълумотлари"
+
+msgid "Miqdor"
+msgstr "Миқдор"
+
+msgid "ta"
+msgstr "та"
+
+msgid "Mavjud"
+msgstr "Мавжуд"
+
+msgid "Mavjud emas"
+msgstr "Мавжуд эмас"
+
+msgid "Buyurtma berish"
+msgstr "Буюртма бериш"
+
+
+msgid "Original"
+msgstr "Оригинал"
+
+msgid "Xavfsiz to'lov"
+msgstr "Хавфсиз тўлов"
+
+
+msgid "holat"
+msgstr "Ҳолати"
+
+msgid "Mahsulot soni"
+msgstr "Маҳсулот сони"

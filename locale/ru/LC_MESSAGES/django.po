@@ -1,0 +1,456 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-17 21:49+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: apps/admin.py:61
+msgid "Login ma'lumotlari"
+msgstr ""
+
+#: apps/admin.py:63
+msgid "Shaxsiy ma'lumotlar"
+msgstr ""
+
+#: apps/admin.py:67
+msgid "Ruxsatlar"
+msgstr ""
+
+#: apps/admin.py:79
+msgid "Muhim sanalar"
+msgstr ""
+
+#: apps/admin.py:84
+msgid "Yangi foydalanuvchi yaratish"
+msgstr ""
+
+#: apps/admin.py:92 apps/admin.py:339
+msgid "Holati"
+msgstr ""
+
+#: apps/admin.py:111
+#, fuzzy
+#| msgid "Mahsulotlar"
+msgid "Mahsulotlar soni"
+msgstr "Продукты"
+
+#: apps/admin.py:125
+msgid "Rasm"
+msgstr ""
+
+#: apps/admin.py:145
+msgid "Logo"
+msgstr ""
+
+#: apps/admin.py:165
+msgid "Ko'rinishi"
+msgstr ""
+
+#: apps/admin.py:204
+msgid "Narx"
+msgstr ""
+
+#: apps/admin.py:208
+msgid "Ombordagi soni"
+msgstr ""
+
+#: apps/admin.py:242
+msgid "Variantlar soni"
+msgstr ""
+
+#: apps/admin.py:292
+msgid "Mijoz ma'lumotlari"
+msgstr ""
+
+#: apps/admin.py:302 apps/admin.py:331 templates/Home.html:856
+msgid "Manzil"
+msgstr "Адрес"
+
+#: apps/admin.py:306
+#, fuzzy
+#| msgid "📦 Buyurtma tarixi"
+msgid "Buyurtma tafsilotlari"
+msgstr "📦 История заказов"
+
+#: apps/admin.py:319
+msgid "To'lov"
+msgstr ""
+
+#: apps/admin.py:322
+msgid "Sana"
+msgstr ""
+
+#: apps/admin.py:327
+msgid "Mijoz"
+msgstr ""
+
+#: apps/admin.py:335
+msgid "Umumiy narx"
+msgstr ""
+
+#: apps/admin.py:350
+msgid "To'lov cheki"
+msgstr ""
+
+#: apps/admin.py:361
+msgid "Tasdiqlangan deb belgilash"
+msgstr ""
+
+#: apps/admin.py:366
+msgid "Yetkazilmoqda deb belgilash"
+msgstr ""
+
+#: apps/admin.py:371
+msgid "Yetkazib berilgan deb belgilash"
+msgstr ""
+
+#: apps/admin.py:376
+msgid "Rad etilgan deb belgilash"
+msgstr ""
+
+#: templates/Home.html:746
+msgid "Toifalar"
+msgstr "Категории"
+
+#: templates/Home.html:747
+msgid "Kerakli kategoriyani tanlang"
+msgstr "Выберите нужную категорию"
+
+#: templates/Home.html:749
+msgid "Hammasini ko'rish →"
+msgstr "Смотреть все →"
+
+#: templates/Home.html:756
+msgid "Ko'plab mahsulotlar"
+msgstr "Много товаров"
+
+#: templates/Home.html:767 templates/base/base.html:641
+msgid "Mahsulotlar"
+msgstr "Продукты"
+
+#: templates/Home.html:768
+msgid "Mashhur vitaminlar"
+msgstr "Популярные витамины"
+
+#: templates/Home.html:770
+msgid "Barchasini ko'rish →"
+msgstr "Смотреть все →"
+
+#: templates/Home.html:784
+msgid "so'm"
+msgstr "сум"
+
+#: templates/Home.html:799
+msgid "Bismillah — Sifat kafolati"
+msgstr "Бисмиллях — Гарантия качества"
+
+#: templates/Home.html:804
+msgid "6 yillik tajriba"
+msgstr "6 лет опыта"
+
+#: templates/Home.html:805
+msgid "Amerika va Yevropa vitaminlari sohasida ishonchli yetkazuvchi."
+msgstr "Надежный поставщик витаминов из Америки и Европы."
+
+#: templates/Home.html:811
+msgid "Tez yetkazib berish"
+msgstr "Быстрая доставка"
+
+#: templates/Home.html:812
+msgid "Toshkent bo'ylab tez va xavfsiz yetkazib berish xizmati."
+msgstr "Быстрая и безопасная доставка по Ташкенту."
+
+#: templates/Home.html:818
+#, fuzzy, python-format
+#| msgid "100% Original"
+msgid "100%% Original"
+msgstr "100% Оригинал"
+
+#: templates/Home.html:819
+msgid "Soxta mahsulot yo'q. Har bir tovar hujjatlari bilan keladi."
+msgstr "Никаких подделок. Каждый товар сопровождается документами."
+
+#: templates/Home.html:825 templates/base/base.html:640
+msgid "Biz haqimizda"
+msgstr "О нас"
+
+#: templates/Home.html:826
+msgid "Nima uchun Sababan Vitamin?"
+msgstr "Почему Sababan Vitamin?"
+
+#: templates/Home.html:828
+msgid ""
+"Sevara Ergasheva tomonidan 2018 yilda tashkil etilgan Sababan Vitamin bugun "
+"Toshkentning eng ishonchli vitamin do'konlaridan biriga aylandi. Biz 156 000 "
+"dan ortiq doimiy mijozlarimizga xizmat qilamiz."
+msgstr ""
+"Основанный Севарой Эргашевой в 2018 году, Sababan Vitamin стал одним из "
+"самых надежных витаминных магазинов в Ташкенте. Мы обслуживаем более 156 000 "
+"постоянных клиентов."
+
+#: templates/Home.html:831
+msgid "Original, sertifikatlangan Amerika vitaminlari"
+msgstr "Оригинальные, сертифицированные американские витамины"
+
+#: templates/Home.html:832
+msgid "Optom va chakana narxlarda savdo"
+msgstr "Оптовая и розничная торговля"
+
+#: templates/Home.html:833
+msgid "Qoraqamish 2/1 da qulay joylashuv"
+msgstr "Удобное расположение на Каракамыше 2/1"
+
+#: templates/Home.html:834
+msgid "Onlayn buyurtma va yetkazib berish"
+msgstr "Онлайн заказ и доставка"
+
+#: templates/Home.html:835
+msgid "Mutaxassis maslahat bepul"
+msgstr "Бесплатная консультация специалиста"
+
+#: templates/Home.html:838
+msgid "Buyurtma berish →"
+msgstr "Заказать →"
+
+#: templates/Home.html:847 templates/base/base.html:642
+#: templates/base/base.html:659
+msgid "Aloqa"
+msgstr "Контакты"
+
+#: templates/Home.html:848
+msgid "Biz bilan bog'laning"
+msgstr "Свяжитесь с нами"
+
+#: templates/Home.html:857
+msgid "Qoraqamish 2/1, Toshkent"
+msgstr "Каракамыш 2/1, Ташкент"
+
+#: templates/Home.html:861
+msgid "Ish vaqti"
+msgstr "Время работы"
+
+#: templates/Home.html:866
+msgid "Telefon 1"
+msgstr "Телефон 1"
+
+#: templates/Home.html:871
+msgid "Telefon 2"
+msgstr "Телефон 2"
+
+#: templates/Home.html:879
+msgid "Telegram kanalimiz"
+msgstr "Наш Telegram канал"
+
+#: templates/Login.html:284
+msgid "Xush kelibsiz!"
+msgstr "Добро пожаловать!"
+
+#: templates/Login.html:285
+msgid "Hisobingizga kiring"
+msgstr "Войдите в аккаунт"
+
+#: templates/Login.html:288
+msgid "Telefon raqam"
+msgstr "Номер телефона"
+
+#: templates/Login.html:310
+msgid "Parolingizni kiriting"
+msgstr "Введите пароль"
+
+#: templates/Login.html:315
+msgid "Parolni unutdingizmi?"
+msgstr "Забыли пароль?"
+
+#: templates/Login.html:317 templates/Register.html:354
+#: templates/base/base.html:607 templates/base/base.html:651
+msgid "Kirish"
+msgstr "Войти"
+
+#: templates/Login.html:320
+msgid "Akkauntingiz yo'qmi?"
+msgstr "Нет аккаунта?"
+
+#: templates/Login.html:321 templates/Register.html:351
+#: templates/base/base.html:652
+msgid "Ro'yxatdan o'tish"
+msgstr "Регистрация"
+
+#: templates/Register.html:267
+msgid "Hisob yarating"
+msgstr "Создайте аккаунт"
+
+#: templates/Register.html:268
+#, fuzzy
+#| msgid "Sababan Vitamin oilasiga qo'shiling"
+msgid "Sababan Vitamin oilasiga qo\\'shiling"
+msgstr "Присоединяйтесь к семье Sababan Vitamin"
+
+#: templates/Register.html:270
+msgid "🎁 Chegirmalar"
+msgstr "🎁 Скидки"
+
+#: templates/Register.html:271
+msgid "📦 Buyurtma tarixi"
+msgstr "📦 История заказов"
+
+#: templates/Register.html:272
+msgid "🚀 Tez buyurtma"
+msgstr "🚀 Быстрый заказ"
+
+#: templates/Register.html:277
+msgid "Ism *"
+msgstr "Имя *"
+
+#: templates/Register.html:284
+msgid "Ismingiz"
+msgstr "Ваше имя"
+
+#: templates/Register.html:288
+msgid "Familiya(ixtiyoriy) *"
+msgstr "Фамилия(опционально) *"
+
+#: templates/Register.html:295
+msgid "Familiyangiz"
+msgstr "Ваша фамилия"
+
+#: templates/Register.html:301
+msgid "Telefon raqam *"
+msgstr "Номер телефона *"
+
+#: templates/Register.html:314
+msgid "Parol *"
+msgstr "Пароль *"
+
+#: templates/Register.html:323
+msgid "Kamida 8 ta belgi"
+msgstr "Минимум 8 символов"
+
+#: templates/Register.html:330
+msgid "Parolni tasdiqlang *"
+msgstr "Подтвердите пароль *"
+
+#: templates/Register.html:339
+msgid "Parolni qaytaring"
+msgstr "Повторите пароль"
+
+#: templates/base/base.html:546
+msgid "Home"
+msgstr "Главная"
+
+#: templates/base/base.html:549
+msgid "About"
+msgstr "О нас"
+
+#: templates/base/base.html:553
+msgid "Products"
+msgstr "Продукты"
+
+#: templates/base/base.html:556
+msgid "Contact"
+msgstr "Контакты"
+
+#: templates/base/base.html:627
+msgid "sevara"
+msgstr "Основано Севарой Эргашевой. 100% халяль, оригинальные витамины."
+
+#: templates/base/base.html:637
+msgid "Sahifalar"
+msgstr "Страницы"
+
+#: templates/base/base.html:639
+msgid "Bosh sahifa"
+msgstr "Главная"
+
+#: templates/base/base.html:646
+msgid "Akkaunt"
+msgstr "Аккаунт"
+
+#: templates/base/base.html:661
+msgid "Toshkent, Qoraqamish 2/1"
+msgstr "Ташкент, Каракамыш 2/1"
+
+#: templates/base/base.html:669
+msgid "Barcha huquqlar himoyalangan."
+msgstr "Все права защищены."
+
+msgid "Vitamin yoki mahsulot qidiring..."
+msgstr "Ищите витамины или товары..."
+
+msgid "Qidirish"
+msgstr "Найти"
+
+msgid "Barchasi"
+msgstr "Все"
+
+msgid "ta mahsulot topildi"
+msgstr "товаров найдено"
+
+
+msgid "Hech narsa topilmadi"
+msgstr "Ничего не найдено"
+
+msgid "Siz qidirgan mahsulot bazada yo‘q yoki filtr mos kelmadi."
+msgstr "Товар, который вы ищете, отсутствует или фильтр не подошел."
+
+msgid "Filtrni tozalash"
+msgstr "Очистить фильтр"
+
+msgid "Barcha mahsulotlar"
+msgstr "Все товары"
+
+
+msgid "Siz ro'yxatdan o'tmagansiz. Keling, ro'yxatdan o'tamiz!"
+msgstr "Вы не зарегистрированы. Давайте зарегистрируемся!"
+
+
+msgid "Yopish"
+msgstr "Закрыть"
+
+msgid "dona"
+msgstr "шт."
+
+msgid "Mahsulot ma'lumotlari"
+msgstr "Информация о товаре"
+
+msgid "Miqdor"
+msgstr "Количество"
+
+msgid "ta"
+msgstr "шт."
+
+msgid "Mavjud"
+msgstr "В наличии"
+
+msgid "Mavjud emas"
+msgstr "Нет в наличии"
+
+msgid "Buyurtma berish"
+msgstr "Заказать"
+
+msgid "Original"
+msgstr "Оригинал"
+
+msgid "Xavfsiz to'lov"
+msgstr "Безопасная оплата"
+
+msgid "holat"
+msgstr "Статус"
+
+msgid "Mahsulot soni"
+msgstr "Количество товара"

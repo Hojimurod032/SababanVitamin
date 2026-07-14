@@ -1,0 +1,907 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+
+
+{% block base %}
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green-dark: #2D6A4F;
+            --green-mid: #40916C;
+            --green-light: #74C69D;
+            --green-pale: #D8F3DC;
+            --white: #FFFFFF;
+            --off-white: #F8FAF9;
+            --gray-100: #F0F4F2;
+            --gray-300: #C8D8D0;
+            --gray-500: #7A9E90;
+            --gray-700: #3D5A50;
+            --gray-900: #1B2E28;
+            --accent-gold: #E9C46A;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 2px 8px rgba(45, 106, 79, .10);
+            --shadow-md: 0 4px 20px rgba(45, 106, 79, .15);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--off-white);
+            color: var(--gray-900);
+        }
+
+        .nav-burger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            border-radius: 2px;
+        }
+
+        /* ===== HERO BANNER ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--accent-gold);
+        }
+
+        .hero-desc {
+            color: rgba(255, 255, 255, .85);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 420px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: var(--green-dark);
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, .15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, .5);
+            transition: border-color .2s, background .2s;
+        }
+
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 36px;
+        }
+
+        .hero-stat {
+            color: #fff;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-gold);
+        }
+
+        .hero-stat span {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .hero-image-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, .15);
+            border: 1px solid rgba(255, 255, 255, .3);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            color: #fff;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .hero-card-emoji {
+            font-size: 72px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .hero-card-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hero-card-sub {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .hero-card-badge {
+            display: inline-block;
+            margin-top: 16px;
+            background: var(--accent-gold);
+            color: var(--gray-900);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+
+        /* ===== CATEGORIES ===== */
+        .categories-section {
+            padding: 64px 24px;
+            background: var(--white);
+        }
+
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 36px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .section-eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--green-mid);
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .section-link {
+            color: var(--green-mid);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .section-link:hover {
+            text-decoration: underline;
+        }
+
+        .categories-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            padding: 28px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--gray-900);
+            border: 2px solid transparent;
+            transition: border-color .2s, transform .2s, box-shadow .2s;
+        }
+
+        .category-card:hover {
+            border-color: var(--green-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-emoji {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .category-count {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        /* ===== PRODUCTS ===== */
+        .products-section {
+            padding: 64px 24px;
+            background: var(--off-white);
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--gray-100);
+            transition: transform .2s, box-shadow .2s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-img-wrap {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--green-mid);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        .product-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--green-mid);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 6px;
+        }
+
+        .product-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: var(--gray-900);
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: var(--gray-500);
+            line-height: 1.5;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+
+        .product-price span {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--gray-500);
+            font-family: var(--font-body);
+        }
+
+        /* ===== ABOUT ===== */
+        .about-section {
+            padding: 80px 24px;
+            background: var(--white);
+        }
+
+        .about-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, var(--green-pale) 0%, var(--green-pale) 100%);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            text-align: center;
+            border: 2px solid var(--green-light);
+        }
+
+        .about-big-emoji {
+            font-size: 80px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .about-tagline {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .about-features {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--white);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+        }
+
+        .about-feature-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .about-feature-text {
+            font-size: 13px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .about-feature-text strong {
+            color: var(--gray-900);
+            display: block;
+            font-size: 14px;
+        }
+
+        .about-content .section-eyebrow {
+            margin-bottom: 6px;
+        }
+
+        .about-content .section-title {
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .about-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .about-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        .about-list li::before {
+            content: '✅';
+            font-size: 16px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            padding: 80px 24px;
+            background: var(--off-white);
+        }
+
+        .contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 1px solid var(--gray-100);
+        }
+
+        .contact-card-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-card-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 4px;
+        }
+
+        .contact-card-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .contact-card-value a {
+            color: var(--green-dark);
+            text-decoration: none;
+        }
+
+        .contact-map-wrap {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--gray-100);
+            height: 100%;
+            min-height: 320px;
+        }
+
+        .contact-map-wrap iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            border: none;
+            display: block;
+        }
+
+        .contact-tg-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            background: var(--green-mid);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            transition: background .2s;
+        }
+
+        .contact-tg-link:hover {
+            background: var(--green-dark);
+        }
+
+
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-side {
+                display: none;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 16px;
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-burger {
+                display: flex;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                max-width: 100%;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .product-price {
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--green-dark);
+            }
+
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .heroSwiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .heroSwiper .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 640px) {
+            .hero-banner {
+                height: 220px;
+            }
+        }
+    </style>
+
+
+    <!-- HERO BANNER (News rasmlari) -->
+    <section class="hero-banner">
+        <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+                {% for news in news_data %}
+                    <div class="swiper-slide">
+                        <img src="{{ news.bg_image.url }}" alt="Banner">
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+
+    <section class="categories-section" id="categories">
+        <div class="section-header">
+            <div>
+                <p class="section-eyebrow">{% translate "Toifalar" %}</p>
+                <h2 class="section-title">{% translate "Kerakli kategoriyani tanlang" %}</h2>
+            </div>
+            <a href="#products" class="section-link">{% translate "Hammasini ko'rish →" %}</a>
+        </div>
+        <div class="categories-grid">
+            {% for i in cate_data %}
+                <a href="{% url 'category_id' i.id %}" class="category-card">
+                    <span class="category-emoji">🌿</span>
+                    <div class="category-name">{{ i.title }}</div>
+                    <div class="category-count">{% translate "Ko'plab mahsulotlar" %}</div>
+                </a>
+            {% endfor %}
+
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <div>
+                <p class="section-eyebrow">{% translate "Mahsulotlar" %}</p>
+                <h2 class="section-title">{% translate "Mashhur vitaminlar" %}</h2>
+            </div>
+            <a href="{% url 'products' %}" class="section-link">{% translate "Barchasini ko'rish →" %}</a>
+        </div>
+        <div class="products-grid">
+            {% for i in pro_data %}
+                <a href="{% url 'detail' i.id %}" style="text-decoration: none" class="product-card">
+                    <div class="product-img-wrap">
+                        <img src="{{ i.images.first.image.url }}" alt="{{ i.title }}" class="product-img">
+                        <span class="product-badge">{{ i.product.level }}</span>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">{{ i.product.cate.title }}</div>
+                        <h3 class="product-name">{{ i.product.title }} {{ i.amount }} mg</h3>
+                        <p class="product-desc">{{ i.desc|truncatewords:6 }}</p>
+                        <div class="product-footer">
+                            <div class="product-price">{{ i.price }} <span>{% translate "so'm" %}</span></div>
+                        </div>
+                    </div>
+                </a>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+        <div class="about-inner">
+            <div class="about-visual">
+                <span class="about-big-emoji">🌿</span>
+                <div class="about-tagline">{% translate "Bismillah — Sifat kafolati" %}</div>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <span class="about-feature-icon">🏆</span>
+                        <div class="about-feature-text">
+                            <strong>{% translate "6 yillik tajriba" %}</strong>
+                            {% translate "Amerika va Yevropa vitaminlari sohasida ishonchli yetkazuvchi." %}
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <span class="about-feature-icon">🚚</span>
+                        <div class="about-feature-text">
+                            <strong>{% translate "Tez yetkazib berish" %}</strong>
+                            {% translate "Toshkent bo'ylab tez va xavfsiz yetkazib berish xizmati." %}
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <span class="about-feature-icon">💯</span>
+                        <div class="about-feature-text">
+                            <strong>{% translate "100% Original" %}</strong>
+                            {% translate "Soxta mahsulot yo'q. Har bir tovar hujjatlari bilan keladi." %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <p class="section-eyebrow">{% translate "Biz haqimizda" %}</p>
+                <h2 class="section-title">{% translate "Nima uchun Sababan Vitamin?" %}</h2>
+                <p class="about-text">
+                    {% translate "Sevara Ergasheva tomonidan 2018 yilda tashkil etilgan Sababan Vitamin bugun Toshkentning eng ishonchli vitamin do'konlaridan biriga aylandi. Biz 156 000 dan ortiq doimiy mijozlarimizga xizmat qilamiz." %}
+                </p>
+                <ul class="about-list">
+                    <li>{% translate "Original, sertifikatlangan Amerika vitaminlari" %}</li>
+                    <li>{% translate "Optom va chakana narxlarda savdo" %}</li>
+                    <li>{% translate "Qoraqamish 2/1 da qulay joylashuv" %}</li>
+                    <li>{% translate "Onlayn buyurtma va yetkazib berish" %}</li>
+                    <li>{% translate "Mutaxassis maslahat bepul" %}</li>
+                </ul>
+                <a href="{% url 'products' %}" class="btn-primary"
+                   style="background: var(--green-mid); color: #fff;">{% translate "Buyurtma berish →" %}</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <div>
+                <p class="section-eyebrow">{% translate "Aloqa" %}</p>
+                <h2 class="section-title">{% translate "Biz bilan bog'laning" %}</h2>
+            </div>
+        </div>
+        <div class="contact-inner">
+            <div>
+                <div class="contact-info-grid">
+                    <div class="contact-card">
+                        <span class="contact-card-icon">📍</span>
+                        <div class="contact-card-label">{% translate "Manzil" %}</div>
+                        <div class="contact-card-value">{% translate "Qoraqamish 2/1, Toshkent" %}</div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-card-icon">🕐</span>
+                        <div class="contact-card-label">{% translate "Ish vaqti" %}</div>
+                        <div class="contact-card-value">12:00 – 19:30</div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-card-icon">📞</span>
+                        <div class="contact-card-label">{% translate "Telefon 1" %}</div>
+                        <div class="contact-card-value"><a href="tel:+998998285066">+998 99 828 50 66</a></div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-card-icon">📞</span>
+                        <div class="contact-card-label">{% translate "Telefon 2" %}</div>
+                        <div class="contact-card-value"><a href="tel:+998955713535">+998 95 571 35 35</a></div>
+                    </div>
+                </div>
+                <a href="https://t.me/amerikavitaminka" target="_blank" class="contact-tg-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 14.03l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.936.556z"/>
+                    </svg>
+                    {% translate "Telegram kanalimiz" %}
+                </a>
+            </div>
+            <div class="contact-map-wrap">
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.1!2d69.2401!3d41.2995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE3JzU3LjgiTiA2OcKwMTQnMjQuNCJF!5e0!3m2!1suz!2suz!4v1699999999999!5m2!1suz!2suz"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Sababan Vitamin manzil">
+                </iframe>
+            </div>
+        </div>
+    </section>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        new Swiper(".heroSwiper", {
+            loop: true,
+            autoplay: {delay: 4000, disableOnInteraction: false},
+            pagination: {el: ".swiper-pagination", clickable: true},
+            navigation: {nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"},
+        });
+    </script>
+{% endblock %}
