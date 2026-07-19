@@ -130,6 +130,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CSRF_TRUSTED_ORIGINS = [
     'https://darryl-formalistic-grimly.ngrok-free.dev',
     'http://192.168.1.103:7777',
+    'http://127.0.0.1:1909/',
 ]
 SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_COOKIE_SECURE = False
